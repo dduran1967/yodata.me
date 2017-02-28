@@ -1,0 +1,20 @@
+# ACL for the default favicon.ico resource
+# Individual users will be able to override it as they wish
+# Public-readable
+
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+<#owner>
+    a acl:Authorization;
+    acl:agent
+        <https://dave.yodata.dave:8443/profile/card#me>;
+    acl:accessTo
+        </favicon.ico>;
+    acl:mode
+        acl:Read, acl:Write, acl:Control.
+
+<#public> a acl:Authorization;
+    acl:accessTo </favicon.ico>;
+    acl:agentClass foaf:Agent;
+    acl:mode acl:Read.
